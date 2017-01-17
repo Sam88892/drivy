@@ -179,7 +179,6 @@ var rentalModifications = [{
       }
     }
   }
-}
 
 
 console.log(cars);
