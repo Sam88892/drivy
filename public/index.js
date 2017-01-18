@@ -186,6 +186,12 @@ var rentalModifications = [{
       var rentals[i].commission.insurance=0.5*commission;//Calcul du montant de l'assurance
       var rentals[i].commission.assistance=time;//Calcul du montant de la roadside assistance
       var rentals[i].commission.drivy=rentals[i].price-rentals[i].commission;//argent touché par drivy
+      
+      
+      //Exercice 4
+      if(rentals[i].options.deductibleReduction==true){rentals[i].price=rentals[i].price+time*4;}//Calcul du nouveau prix si la deductible reduction est appliquable
+      
+      
   }
      
       
