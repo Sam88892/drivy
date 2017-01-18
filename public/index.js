@@ -181,10 +181,14 @@ var rentalModifications = [{
       if(time>4){rental[i].price=rental[i].price*0.7}//Rabais de 30 pourcent
       if(time>10){rental[i].price=rental[i].price*0.5}//Rabais de 50 pourcent
       //Exercice 3
-      var commission=rentals[i].price*0.3;// Calcul de la commission qui est de 30 pourcent du prix
-      var insurance=0.5*commission;//Calcul du montant de l'assurance
-      var roadsideAssistance=time;//Calcul du montant de la roadside assistance
-      var drivy=rentals[i].price-commission-insurance-roadsideAssistance;
+      
+      var rentals[i].commission=rentals[i].price*0.3;// Calcul de la commission qui est de 30 pourcent du prix
+      var rentals[i].commission.insurance=0.5*commission;//Calcul du montant de l'assurance
+      var rentals[i].commission.assistance=time;//Calcul du montant de la roadside assistance
+      var rentals[i].commission.drivy=rentals[i].price-rentals[i].commission;//argent touché par drivy
+  }
+     
+      
       
       
       
