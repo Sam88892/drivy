@@ -170,13 +170,14 @@ var rentalModifications = [{
   var time = 0; // J'initialise à 0 la variable time
   for (var i = 0; i < rentals.length; i++) { //On parcours le tableau rentals
     time = new Date(rentals[i].returnDate) - new Date(rentals[i].pickupDate);On recupere la date en créant un objet à partir de la classe Date
-    time = time/ (1000*60*60*24); // Conversion du temps
-    time++;
+    time = time/ (1000*60*60*24); // Conversion du temps de millisecondes en jours
+    time++;//On rajoute 1 car pour le meme jour on a une difference egale à 0
     for (var j = 0; j < cars.length; j++) { //On parcours le tableau cars
       if(rentals[i].carId === cars[j].id) { //On verifie que la voiture correspond bien à celle de la location
         rentals[i].price = rentals[i].distance * cars[j].pricePerKm; //On calcul le prix en fonction de la distance
         rentals[i].price =rentals[i].price +( time * cars[j].pricePerDay); //On l'aditionne  le prix calculé en fonction du temps et de la distance pour avoir le prix total
       }
+      if (time)
     }
   }
 
