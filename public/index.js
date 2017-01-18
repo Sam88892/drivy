@@ -166,7 +166,7 @@ var rentalModifications = [{
 }];
 
 
- function Renntalprice(rentals,cars) {
+ function Rentalprice(rentals,cars) {
   var time = 0; // J'initialise à 0 la variable time
   for (var i = 0; i < rentals.length; i++) { //On parcours le tableau rentals
     time = new Date(rentals[i].returnDate) - new Date(rentals[i].pickupDate);On recupere la date en créant un objet à partir de la classe Date
@@ -177,7 +177,10 @@ var rentalModifications = [{
         rentals[i].price = rentals[i].distance * cars[j].pricePerKm; //On calcul le prix en fonction de la distance
         rentals[i].price =rentals[i].price +( time * cars[j].pricePerDay); //On l'aditionne  le prix calculé en fonction du temps et de la distance pour avoir le prix total
       }
-      
+      if(time>1){rental[i].price=rental[i].price*0.9}//Rabais de 10 pourcent
+      if(time>4){rental[i].price=rental[i].price*0.7}//Rabais de 30 pourcent
+      if(time>10){rental[i].price=rental[i].price*0.5}//Rabais de 50 pourcent
+                  
     }
   }
 
