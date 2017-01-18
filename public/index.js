@@ -240,3 +240,9 @@ console.log(cars);
 console.log(rentals);
 console.log(actors);
 console.log(rentalModifications);
+
+
+/*Exercice 6
+Il faut faire une nouvelle boucle for pour parcourir rentalModifications
+Il faut verifier que 'rentalId' est le meme que l'id de rentals à l'aide d'un if puis a l'aide d'egalités comme precedemment on modifie la valeur correspondante dans le tableau rentals.
+ */
