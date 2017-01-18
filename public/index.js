@@ -177,7 +177,7 @@ var rentalModifications = [{
         rentals[i].price = rentals[i].distance * cars[j].pricePerKm; //On calcul le prix en fonction de la distance
         rentals[i].price =rentals[i].price +( time * cars[j].pricePerDay); //On l'aditionne  le prix calculé en fonction du temps et de la distance pour avoir le prix total
       }
-      if (time)
+      
     }
   }
 
