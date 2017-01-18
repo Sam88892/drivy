@@ -176,10 +176,13 @@ var rentalModifications = [{
       if(rentals[i].carId === cars[j].id) { //On verifie que la voiture correspond bien à celle de la location
         rentals[i].price = rentals[i].distance * cars[j].pricePerKm; //On calcul le prix en fonction de la distance
         rentals[i].price =rentals[i].price +( time * cars[j].pricePerDay); //On l'aditionne  le prix calculé en fonction du temps et de la distance pour avoir le prix total
-      }
+      
       if(time>1){rental[i].price=rental[i].price*0.9}//Rabais de 10 pourcent
       if(time>4){rental[i].price=rental[i].price*0.7}//Rabais de 30 pourcent
       if(time>10){rental[i].price=rental[i].price*0.5}//Rabais de 50 pourcent
+      
+  }
+      
                   
     }
   }
