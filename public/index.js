@@ -181,16 +181,28 @@ var rentalModifications = [{
       if(time>4){rental[i].price=rental[i].price*0.7}//Rabais de 30 pourcent
       if(time>10){rental[i].price=rental[i].price*0.5}//Rabais de 50 pourcent
       //Exercice 3
-      
-      var rentals[i].commission=rentals[i].price*0.3;// Calcul de la commission qui est de 30 pourcent du prix
-      var rentals[i].commission.insurance=0.5*commission;//Calcul du montant de l'assurance
-      var rentals[i].commission.assistance=time;//Calcul du montant de la roadside assistance
-      var rentals[i].commission.drivy=rentals[i].price-rentals[i].commission;//argent touché par drivy
-      
+      for (var k = 0; k < commission.length; k++){
+          commission=0.3*rentals[i].price;
+      var rentals[i].commission[k].insurance=0.5*commission;//Calcul du montant de l'assurance
+      var rentals[i].commission[k].assistance=time;//Calcul du montant de la roadside assistance
+      var rentals[i].commission[k].drivy=rentals[i].price-commission;//argent touché par drivy
+  }
       
       //Exercice 4
-      if(rentals[i].options.deductibleReduction==true){rentals[i].price=rentals[i].price+time*4;}//Calcul du nouveau prix si la deductible reduction est appliquable
+      if(rentals[i].options.deductibleReduction==true){=rentals[i].price+time*4;}//Calcul du nouveau prix si la deductible reduction est appliquable
       
+      //Exercice 5
+      for (var k = 0; k < actors.length; k++){//On parcours le tableau actors
+          if(rentals[i].Id === actors[k].rentalsId)//On verifie la correspondance des id des deux tableaux
+          {
+              for (var l = 0; k < payment.length; k++)
+              if (l==0){
+                  actors[k].rentalsId.payment[l]=
+              }
+              
+          }
+          
+      }
       
   }
      
