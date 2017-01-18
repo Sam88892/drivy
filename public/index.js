@@ -185,20 +185,38 @@ var rentalModifications = [{
           commission=0.3*rentals[i].price;
       var rentals[i].commission[k].insurance=0.5*commission;//Calcul du montant de l'assurance
       var rentals[i].commission[k].assistance=time;//Calcul du montant de la roadside assistance
-      var rentals[i].commission[k].drivy=rentals[i].price-commission;//argent touché par drivy
+      var rentals[i].commission[k].drivy=commission-rentals[i].commission[k].insurance-rentals[i].commission[k].assistance;//argent touché par drivy
   }
       
       //Exercice 4
-      if(rentals[i].options.deductibleReduction==true){=rentals[i].price+time*4;}//Calcul du nouveau prix si la deductible reduction est appliquable
+      if(rentals[i].options.deductibleReduction==true){deductibleReduction=rentals[i].price+time*4;}//Calcul du nouveau prix si la deductible reduction est appliquable
       
       //Exercice 5
       for (var k = 0; k < actors.length; k++){//On parcours le tableau actors
           if(rentals[i].Id === actors[k].rentalsId)//On verifie la correspondance des id des deux tableaux
           {
-              for (var l = 0; k < payment.length; k++)
+              for (var l = 0; l < payment.length; l++)//On parcours le tableau payment
               if (l==0){
-                  actors[k].rentalsId.payment[l]=
+                  actors[k].rentalsId.payment[0]=rentals[i].price+deductibleReduction // Caclul pour the driver
+                          
               }
+                if (l==1){
+                  actors[k].rentalsId.payment[l]=rentals[i].price-commission;// Caclul pour the owner
+                          
+              }
+                    if (l==2){
+                  actors[k].rentalsId.payment[2]=rentals[i].commission[k].insurance=0.5*commission;// Caclul pour the insurance
+                          
+              }
+                        if (l==3){
+                  actors[k].rentalsId.payment[3]=rentals[i].commission[k].assistance;// Caclul pour the assistance
+                          
+              }
+                            if (l==4){
+                  actors[k].rentalsId.payment[4]=rentals[i].commission[k].drivy+deductibleReduction;// Caclul pour the drivy receives
+                          
+              }
+  
               
           }
           
